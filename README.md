@@ -1,4 +1,4 @@
-# React Youtube
+# Redux Book Tracker
 A book tracking application using Redux for state management.
 
 #### To use
