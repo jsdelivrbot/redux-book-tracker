@@ -1,20 +1,15 @@
-import React, {Component} from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
 
-const API_KEY = 'AIzaSyDOZVmlJpsTZy9ioUo3yXILgvbPH7cO3d4';
-const DEFAULT_TERM = 'Japan'
-class App extends Component {
-  constructor(props) {
-    super(props);
-  }
+import App from './components/app';
+import reducers from './reducers/reducers'
 
-  render() {
-    return (
-      <div>
+const createStoreWithMiddleware = applyMiddleware()(createStore);
 
-      </div>
-    );
-  }
-}
-
-ReactDOM.render(<App/>, document.querySelector('.container'));
+ReactDOM.render(
+  <Provider store={createStoreWithMiddleware(reducers)}>
+    <App />
+  </Provider>
+  , document.querySelector('.container'));
